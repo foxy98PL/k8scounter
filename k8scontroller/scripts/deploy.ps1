@@ -36,4 +36,4 @@ kubectl get pods -n counter -l app=counter-controller
 
 Write-Host "Deployment completed successfully!" -ForegroundColor Green
 Write-Host "To check logs, run: kubectl logs -l app=counter-controller -n counter" -ForegroundColor Cyan
-Write-Host "To check controller events, run: kubectl get events -n counter --field-selector involvedObject.name=counter-controller" -ForegroundColor Cyan 
+Write-Host "To check controller events, run: kubectl get events -n counter --field-selector involvedObject.name=counter-controller" -ForegroundColor Cyan

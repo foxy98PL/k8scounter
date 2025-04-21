@@ -26,4 +26,4 @@ if [ ! -f "go.sum" ]; then
 fi
 
 echo "Dependencies prepared successfully!"
-echo "You can now run the deployment script." 
+echo "You can now run the deployment script."

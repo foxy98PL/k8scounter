@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: counter-controller
+  namespace: counter
+  labels:
+    app: counter-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: counter-controller
+  template:
+    metadata:
+      labels:
+        app: counter-controller
+    spec:
+      serviceAccountName: counter-controller
+      containers:
+      - name: controller
+        image: counter-controller:latest
+        imagePullPolicy: Never
+        envFrom:
+        - configMapRef:
+            name: controller-config
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "200m"
+            memory: "256Mi"

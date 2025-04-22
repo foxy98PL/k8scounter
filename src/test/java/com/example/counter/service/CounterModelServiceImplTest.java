@@ -1,6 +1,6 @@
 package com.example.counter.service;
 
-import com.example.counter.model.Counter;
+import com.example.counter.model.CounterModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,7 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-class CounterServiceImplTest {
+class CounterModelServiceImplTest {
 
     private static final int INITIAL_VALUE = 0;
     private static final int INCREMENTED_VALUE = 1;
@@ -19,18 +19,12 @@ class CounterServiceImplTest {
     @InjectMocks
     private CounterServiceImpl counterService;
 
-    @BeforeEach
-    void setUp() {
-        // No need to initialize as @InjectMocks handles this
-    }
-
     @Test
     void shouldIncreaseValueByOneWhenIncrementing() {
-        // Given
-        // Initial state is set up in setUp()
+        //Given
 
         // When
-        Counter result = counterService.increment();
+        CounterModel result = counterService.increment();
 
         // Then
         assertEquals(INCREMENTED_VALUE, result.getValue(), 
@@ -44,7 +38,7 @@ class CounterServiceImplTest {
         counterService.increment();
 
         // When
-        Counter result = counterService.decrement();
+        CounterModel result = counterService.decrement();
 
         // Then
         assertEquals(DECREMENTED_VALUE, result.getValue(), 
@@ -58,7 +52,7 @@ class CounterServiceImplTest {
         counterService.increment();
 
         // When
-        Counter result = counterService.getCurrentValue();
+        CounterModel result = counterService.getCurrentValue();
 
         // Then
         assertEquals(DOUBLE_INCREMENTED_VALUE, result.getValue(), 
@@ -68,10 +62,9 @@ class CounterServiceImplTest {
     @Test
     void shouldReturnZeroWhenGettingInitialValue() {
         // Given
-        // Initial state is set up in setUp()
 
         // When
-        Counter result = counterService.getCurrentValue();
+        CounterModel result = counterService.getCurrentValue();
 
         // Then
         assertEquals(INITIAL_VALUE, result.getValue(), 

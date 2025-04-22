@@ -1,6 +1,6 @@
 package com.example.counter.health;
 
-import com.example.counter.model.Counter;
+import com.example.counter.model.CounterModel;
 import com.example.counter.service.CounterService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class CounterHealthIndicatorTest {
+class CounterModelHealthIndicatorTest {
 
     private static final String SERVICE_NAME = "counter";
     private static final String STATUS_OPERATIONAL = "operational";
@@ -39,7 +39,7 @@ class CounterHealthIndicatorTest {
     @Test
     void shouldReturnUpStatusWhenServiceIsOperational() {
         // Given
-        when(counterService.getCurrentValue()).thenReturn(new Counter(1));
+        when(counterService.getCurrentValue()).thenReturn(new CounterModel(1));
 
         // When
         Health health = healthIndicator.health();
@@ -95,7 +95,7 @@ class CounterHealthIndicatorTest {
     @Test
     void shouldReturnUpStatusWhenServiceReturnsZero() {
         // Given
-        when(counterService.getCurrentValue()).thenReturn(new Counter(1));
+        when(counterService.getCurrentValue()).thenReturn(new CounterModel(1));
 
         // When
         Health health = healthIndicator.health();
@@ -134,7 +134,7 @@ class CounterHealthIndicatorTest {
     @Test
     void shouldReturnUpStatusWhenServiceReturnsNegativeValue() {
         // Given
-        when(counterService.getCurrentValue()).thenReturn(new Counter(-1));
+        when(counterService.getCurrentValue()).thenReturn(new CounterModel(-1));
 
         // When
         Health health = healthIndicator.health();

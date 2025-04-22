@@ -1,9 +1,9 @@
 package com.example.counter.service;
 
-import com.example.counter.model.Counter;
+import com.example.counter.model.CounterModel;
 
 public interface CounterService {
-    Counter increment();
-    Counter decrement();
-    Counter getCurrentValue();
+    CounterModel increment();
+    CounterModel decrement();
+    CounterModel getCurrentValue();
 } 

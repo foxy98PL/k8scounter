@@ -1,22 +1,18 @@
 package com.example.counter.model;
 
-public class Counter {
+public class CounterModel {
     private int value;
 
-    public Counter() {
+    public CounterModel() {
         this.value = 0;
     }
 
-    public Counter(int value) {
+    public CounterModel(int value) {
         this.value = value;
     }
 
     public int getValue() {
         return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
     }
 
     public void increment() {

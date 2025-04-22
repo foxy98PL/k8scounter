@@ -1,26 +1,26 @@
 package com.example.counter.service;
 
-import com.example.counter.model.Counter;
+import com.example.counter.model.CounterModel;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CounterServiceImpl implements CounterService {
-    private Counter counter = new Counter();
+    private CounterModel counterModel = new CounterModel();
 
     @Override
-    public Counter increment() {
-        counter.increment();
-        return counter;
+    public CounterModel increment() {
+        counterModel.increment();
+        return counterModel;
     }
 
     @Override
-    public Counter decrement() {
-        counter.decrement();
-        return counter;
+    public CounterModel decrement() {
+        counterModel.decrement();
+        return counterModel;
     }
 
     @Override
-    public Counter getCurrentValue() {
-        return counter;
+    public CounterModel getCurrentValue() {
+        return counterModel;
     }
 } 

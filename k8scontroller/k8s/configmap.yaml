@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: controller-config
+  namespace: counter
+data:
+  COUNTER_URL: "http://counter-service.counter.svc.cluster.local/api/counter"

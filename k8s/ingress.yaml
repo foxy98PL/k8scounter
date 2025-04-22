@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: counter-ingress
+  namespace: counter
+  annotations:
+    nginx.ingress.kubernetes.io/whitelist-method: "GET"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  tls:
+    - hosts:
+        - xcounter.local
+      secretName: xcounter-tls
+  rules:
+    - host: xcounter.local
+      http:
+        paths:
+          - path: /api/counter/value
+            pathType: Exact
+            backend:
+              service:
+                name: counter-service
+                port:
+                  number: 80
